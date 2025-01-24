@@ -18,7 +18,7 @@ namespace Assignment_11___C____advanced___shahd_mostafa.classes
 
         public string Team { get; set; }
 
-        public void Run(Location location) =>Console.WriteLine($"{this}Running toward the ball =>{location}");
+        public void Run(object sender,LocationEventArgs locationEventArgs) =>Console.WriteLine($"{this}Running toward the ball =>{sender},{locationEventArgs.Name}");
         public override string ToString()
         {
             return $"Player Name is {Name} in Tram called{Team}";

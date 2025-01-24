@@ -16,8 +16,8 @@ namespace Assignment_11___C____advanced___shahd_mostafa.classes
 
         public override string ToString()
         {
-            return $"Refree Name{Name}";
+            return $"Refree Name {Name}";
         }
-        public void Look(Location location) => Console.WriteLine($"{this} is looking toward the ball => {location}");
+        public void Look(object sender, LocationEventArgs locationEventArgs) => Console.WriteLine($"{this} is looking toward the ball => {sender} , {locationEventArgs.NewLocation}");
     }
 }
