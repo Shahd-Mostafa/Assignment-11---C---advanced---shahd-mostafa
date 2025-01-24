@@ -23,21 +23,20 @@ namespace Assignment_11___C____advanced___shahd_mostafa.classes
             E.EmployeeLayOff += RemoveStaff;
             
         }
-
-        public void Display()
-        {
-            foreach (Employee E in Staff)
-            {
-                Console.WriteLine($"- Employee ID: {E.EmployeeID}");
-            }
-        }
         public void RemoveStaff(object sender,
         EmployeeLayOffEventArgs e)
         {
             if(sender is Employee emp)
             {
-                Console.WriteLine($"Employee {emp.EmployeeID} is laid off due to {e.Cause} ");
+                Console.WriteLine($"Employee {emp.EmployeeID} is removed from {DeptName} due to {e.Cause} ");
                 Staff.Remove(emp);
+            }
+        }
+        public void Display()
+        {
+            foreach (Employee E in Staff)
+            {
+                Console.WriteLine($"- Employee ID: {E.EmployeeID}");
             }
         }
     }

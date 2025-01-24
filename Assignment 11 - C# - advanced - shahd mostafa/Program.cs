@@ -48,6 +48,28 @@ namespace Assignment_11___C____advanced___shahd_mostafa
             Console.WriteLine("Staff after removal: ");
             dept.Display();
             #endregion
+
+            Console.WriteLine("============================");
+
+            #region Q3
+            Club club= new Club(10,"Elite Club");
+            club.AddMember(employee1);
+            club.AddMember(employee2);
+            club.AddMember(employee3);
+
+            Console.WriteLine("Club members before removal");
+            club.display();
+            Console.WriteLine();
+
+
+            employee1.EndOfYearOperation();
+            employee2.EndOfYearOperation();
+            employee3.EndOfYearOperation();
+            Console.WriteLine();
+
+            Console.WriteLine("Club members after removal: ");
+            club.display();
+            #endregion
         }
     }
 }
