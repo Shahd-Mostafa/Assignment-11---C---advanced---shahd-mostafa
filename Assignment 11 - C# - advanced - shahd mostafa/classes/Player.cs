@@ -8,6 +8,10 @@ namespace Assignment_11___C____advanced___shahd_mostafa.classes
 {
     internal class Player
     {
+        public Player()
+        {
+        }
+
         public Player(string name, string team)
         {
             Name = name;

@@ -68,6 +68,15 @@ namespace Assignment_11___C____advanced___shahd_mostafa
             Console.WriteLine(str1.ToString());
             str += 10; // throw expection
             #endregion
+
+            #region V4
+            Player player = new Player() { Name = "Ahmed", Team = "FC" };
+            var employee = new {Id=12,Name="sayed" ,Age=25,Salary=4500};
+            var employee1 = new { Id = 9, Name = "Mohamed", Age = 26, Salary = 7000 };
+            var newemp = employee with { Id = 1 };
+            Console.WriteLine(employee.GetType().Name);
+            Console.WriteLine(employee1.GetType().Name);
+            #endregion
         }
     }
 }
