@@ -24,6 +24,30 @@ namespace Assignment_11___C____advanced___shahd_mostafa
             employee2.EndOfYearOperation();
             employee3.EndOfYearOperation();
             #endregion
+
+            Console.WriteLine("============================");
+
+            #region Q2
+            Department dept = new Department(10, "ITdepartement");
+            dept.AddStaff(employee1);
+            dept.AddStaff(employee2);
+            dept.AddStaff(employee3);
+
+            Console.WriteLine("Staff before removal: ");
+            dept.Display();
+            Console.WriteLine();
+            employee1.EmployeeLayOff -= EmployeeLaidOffHandler;
+            employee2.EmployeeLayOff -= EmployeeLaidOffHandler;
+            employee3.EmployeeLayOff -= EmployeeLaidOffHandler;
+
+            employee1.EndOfYearOperation();
+            employee2.EndOfYearOperation();
+            employee3.EndOfYearOperation();
+            Console.WriteLine();
+
+            Console.WriteLine("Staff after removal: ");
+            dept.Display();
+            #endregion
         }
     }
 }
