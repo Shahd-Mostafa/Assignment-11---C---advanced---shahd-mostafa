@@ -44,6 +44,30 @@ namespace Assignment_11___C____advanced___shahd_mostafa
             ball.LocationChange += (sender, loc) => Console.WriteLine("Extra Time");
             ball.Location = new Location(10, 15);
             #endregion
+
+            #region V3
+            // var,dynamic,object
+            var str = "Hello world";
+            foreach (var arg in str)
+            {
+                Console.WriteLine(arg);
+            }
+            //str = 10; // not allowed for reassignment in diffferent datatype
+
+            //Dictionary<string,int> keyValuePairs = new Dictionary<string,int>();
+            //foreach(var arg in keyValuePairs)
+            //{
+            //    Console.WriteLine(arg.Key);
+            //}
+
+            dynamic str1 = "shahd"; // detect datatype in runtime
+            Console.WriteLine(str1);
+            str1 = 10;
+            Console.WriteLine(str1);
+            str1 = new Player("Mohamed","FC");
+            Console.WriteLine(str1.ToString());
+            str += 10; // throw expection
+            #endregion
         }
     }
 }
