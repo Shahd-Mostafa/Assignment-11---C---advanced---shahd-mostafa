@@ -77,6 +77,13 @@ namespace Assignment_11___C____advanced___shahd_mostafa
             Console.WriteLine(employee.GetType().Name);
             Console.WriteLine(employee1.GetType().Name);
             #endregion
+
+            #region V5
+            int value = 50;
+            Console.WriteLine(IntExtenstions.IsInRange(value,0,100));
+            Console.WriteLine(value.IsInRange(0,100));
+            100.IsInRange(0, 15);
+            #endregion
         }
     }
 }
