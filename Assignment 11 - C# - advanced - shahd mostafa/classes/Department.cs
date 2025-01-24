@@ -28,15 +28,19 @@ namespace Assignment_11___C____advanced___shahd_mostafa.classes
         {
             if(sender is Employee emp)
             {
-                Console.WriteLine($"Employee {emp.EmployeeID} is removed from {DeptName} due to {e.Cause} ");
-                Staff.Remove(emp);
+                if (e.Cause == LayOffCause.vacationStockEmpty || e.Cause == LayOffCause.employeeAgeExceeded)
+                {
+                    Console.WriteLine($"Employee {emp.EmployeeID} was removed from {DeptName} due to {e.Cause}");
+                    emp.EmployeeLayOff -= RemoveStaff;
+                    Staff.Remove(emp);
+                }
             }
         }
         public void Display()
         {
             foreach (Employee E in Staff)
             {
-                Console.WriteLine($"- Employee ID: {E.EmployeeID}");
+                Console.WriteLine($"- Employee ID: {E.EmployeeID} , Age: {DateTime.Now.Year - E.BirthDate.Year}, Vacation Stock: {E.VacationStock}");
             }
         }
     }

@@ -10,9 +10,9 @@ namespace Assignment_11___C____advanced___shahd_mostafa.classes
     {
         public Employee() { }
         public event EventHandler<EmployeeLayOffEventArgs> EmployeeLayOff;
-        protected virtual void OnEmployeeLayOff (EmployeeLayOffEventArgs e)
+        protected virtual void OnEmployeeLayOff (LayOffCause cause)
         {
-            EmployeeLayOff?.Invoke(this,e);
+            EmployeeLayOff?.Invoke(this,new EmployeeLayOffEventArgs { Cause=cause});
         }
         public int EmployeeID { get; set; }
         private DateTime _BirthDate;
@@ -38,30 +38,32 @@ namespace Assignment_11___C____advanced___shahd_mostafa.classes
             }
             return false;
         }
-        public void EndOfYearOperation()
+        public virtual void EndOfYearOperation()
         {
             if(VacationStock<0)
             {
-                OnEmployeeLayOff(new EmployeeLayOffEventArgs(LayOffCause.vacationStockEmpty));
+                OnEmployeeLayOff(LayOffCause.vacationStockEmpty);
             }
             else if(DateTime.Now.Year - BirthDate.Year >60)
             {
-                OnEmployeeLayOff(new EmployeeLayOffEventArgs(LayOffCause.employeeAgeExceeded));
+                OnEmployeeLayOff(LayOffCause.employeeAgeExceeded);
             }
         }
     }
     public enum LayOffCause
     {
         vacationStockEmpty,
-        employeeAgeExceeded
+        employeeAgeExceeded,
+        UnachievedTarget,
+        resigned
     }
     public class EmployeeLayOffEventArgs
     {
         public LayOffCause Cause { get; set; }
-        public EmployeeLayOffEventArgs(LayOffCause cause)
-        {
-            Cause = cause;
-        }
+        //public EmployeeLayOffEventArgs(LayOffCause cause)
+        //{
+        //    Cause = cause;
+        //}
     }
 
 }

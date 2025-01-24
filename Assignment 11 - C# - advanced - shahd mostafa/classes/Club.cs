@@ -21,7 +21,10 @@ namespace Assignment_11___C____advanced___shahd_mostafa.classes
         public void AddMember(Employee E)
         {
             Members.Add(E);
-            E.EmployeeLayOff += RemoveMember;
+            if (E is not BoardMember)
+            {
+                E.EmployeeLayOff += RemoveMember;
+            }
         }
         public void RemoveMember
         (object sender, EmployeeLayOffEventArgs e)
@@ -30,7 +33,7 @@ namespace Assignment_11___C____advanced___shahd_mostafa.classes
             {
                 if(e.Cause == LayOffCause.vacationStockEmpty)
                 {
-                    Console.WriteLine($"Employee {emp.EmployeeID} is removed from {ClubName} due to vacation stock outage");
+                    Console.WriteLine($"Employee {emp.EmployeeID} is removed from {ClubName} due to {e.Cause}");
                     emp.EmployeeLayOff -= RemoveMember;
                     Members.Remove(emp);
                 }
@@ -44,7 +47,7 @@ namespace Assignment_11___C____advanced___shahd_mostafa.classes
         {
             foreach (Employee E in Members)
             {
-                Console.WriteLine($"- Employee ID: {E.EmployeeID}");
+                Console.WriteLine($"- Employee ID: {E.EmployeeID} , Age: {DateTime.Now.Year - E.BirthDate.Year}, Vacation Stock: {E.VacationStock}");
             }
         }
     }
